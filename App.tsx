@@ -1,16 +1,7 @@
-import { Image } from '@material-ui/icons';
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import {
-  Platform,
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import { Platform, SafeAreaView, StyleSheet } from 'react-native';
 import EmojiResults from './EmojiResults';
-import EmojiResultsRow from './EmojiResultsRow';
 import filterEmoji from './filterEmoji';
 import Header from './Header';
 import SearchInput from './SearchInput';
@@ -23,28 +14,21 @@ const App = () => {
   };
   const emojiOne = filteredEmoji[0];
   return (
-    <SafeAreaView style={styles.droidSafeAra}>
+    <SafeAreaView style={styles.droidSafeArea}>
       <StatusBar style="auto" />
       <Header />
       <SearchInput textChange={handleSearchChange} />
       <EmojiResults emojiData={filteredEmoji} />
-      {/* <ScrollView style={{ flex: 1, margin: 16 }}>
-        {filteredEmoji.map((emoji) => (
-          <View style={{ display: 'flex', flexDirection: 'row', flex: 1,  }}>
-            <Text style={{ fontSize: 32, flex: 1 }}>{emoji.symbol}</Text>
-            <Text style={{ fontSize: 16 }}>{emoji.title}</Text>
-          </View>
-        ))}
-      </ScrollView> */}
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  droidSafeAra: {
+  droidSafeArea: {
     flex: 1,
     backgroundColor: 'white',
     paddingTop: Platform.OS === 'android' ? 25 : 0,
+    orientation: 'potrait',
   },
 
   container: {
